@@ -60,7 +60,7 @@ public class ResolverUnLaberinto {
 		return false;
 
 	}
-
+//COMENTARIO DE ANGEL:)
 	public void imprime(char[][] lab) {
 		for (int i = 0; i < lab.length; i++) {
 			for (int j = 0; j < lab[i].length; j++) {
