@@ -1,0 +1,81 @@
+package aplicacion;
+
+import dominio.Trabajador;
+import dominio.TrabajadorPorHoras;
+import dominio.TrabajadorADestajo;
+import javax.swing.JOptionPane;
+/**
+ * Write a description of class ExamenFinal here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class ExamenFinal
+{
+    // instance variables - replace the example below with your own
+    private int x;
+
+    /**
+     * Constructor for objects of class ExamenFinal
+     */
+    public ExamenFinal()
+    {
+        // initialise instance variables
+        x = 0;
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     * 
+     * @param  y   a sample parameter for a method
+     * @return     the sum of x and y 
+     */
+    public static void main(String args[])
+    {
+        // put your code here
+        //arreglo de objetos
+        Trabajador[] nomina;
+        
+        //declarar variables asociadas a métodos y atributos
+        String nombre;
+        String rfc;
+        double pagoPorHora;
+        int horasTrabajadas;
+        //declarar variables asociadas al problema 
+        int cantidad;
+        char opcionTipoTrabajador;
+        
+        do{
+            cantidad = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese cantidad de trabajadores: "));
+        }while(cantidad <= 0);
+        
+        //crear el arreglo 
+        nomina = new Trabajador[cantidad];
+        
+        //lenar el arreglo 
+        for(int i = 0; i < nomina.length; i++){
+            //pedir datos comunes 
+            nombre = JOptionPane.showInputDialog(null,"Ingrese el nombre: " + (i + 1));
+            rfc = JOptionPane.showInputDialog(null,"Ingrese el rfc: ");
+            //pedir tipo de trabajador
+            do{
+            opcionTipoTrabajador = JOptionPane.showInputDialog(null,"¿Qué tipo de trabajador es? " +
+                                                                       "\na)Por horas" +
+                                                                       "\nb)A destajo").charAt(0);
+            //hacer mientras que opcionTrabajador sea diferente de 'a' o 'b'
+            }while(!(opcionTipoTrabajador == 'a' || opcionTipoTrabajador == 'b' || opcionTipoTrabajador == 'A' || opcionTipoTrabajador == 'B'));
+            
+            if(opcionTipoTrabajador == 'a' || opcionTipoTrabajador == 'A'){
+                pagoPorHora = Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el pago del trabajador por hora: "));
+                horasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese las horas trabajadas: "));
+                nomina[i] = new TrabajadorPorHoras(nombre, rfc, pagoPorHora, horasTrabajadas);
+            }
+            
+            if(opcionTipoTrabajador == 'b' || opcionTipoTrabajador == 'B'){
+                pagoPorHora = Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el pago del trabajador por hora: "));
+                horasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese las horas trabajadas: "));
+                nomina[i] = new TrabajadorPorHoras(nombre, rfc, pagoPorHora, horasTrabajadas);
+            }
+        }
+    }
+}
