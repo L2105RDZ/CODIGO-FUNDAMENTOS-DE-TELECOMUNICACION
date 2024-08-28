@@ -1,0 +1,59 @@
+import javax.swing.*;
+public class U5Practica1
+{
+    public static void main(String args[]){
+        String menu = "Ingrese cualquier opcion para continuar"+
+                    "\n1) Fibonnacci serie"+
+                    "\n2) Maximo comun divisor de 2 enteros"+
+                    "\n3) Multiplicar 2 enteros"+
+                    "\n4) Terminar";
+        int op = 0;
+        
+        while(op!=4){
+            op = Integer.parseInt(JOptionPane.showInputDialog(menu));
+            switch(op){
+                case 1:
+                    int n = Integer.parseInt(JOptionPane.showInputDialog("Ingresa un numero"));
+                    JOptionPane.showMessageDialog(null,"El numero fibonnaci de "+n+" es: "+fibonacci(n));
+                    break;
+                case 2:
+                     n = Integer.parseInt(JOptionPane.showInputDialog("Ingresa un numero"));
+                     int b = Integer.parseInt(JOptionPane.showInputDialog("Ingresa otro numero"));
+                     JOptionPane.showMessageDialog(null,"El maximo comun divisor de "+n+" y "+b+" es: "+mcd(n,b));
+                    break;
+                case 3:
+                    n = Integer.parseInt(JOptionPane.showInputDialog("Ingresa un numero"));
+                    b = Integer.parseInt(JOptionPane.showInputDialog("Ingresa otro numero"));
+                    JOptionPane.showMessageDialog(null,"La multiplicacion de"+n+" y "+b+" es: "+multC(n,b));
+                    break;
+            }
+        }
+    }
+    
+    public static int fibonacci(int n){
+        if(n>=2)
+          return fibonacci(n-1) + fibonacci(n-2); 
+         else if(n==0)
+              return 0;
+          else
+              return 1;
+     }
+     
+    public static int mcd(int a, int b){
+        if(b>0)
+            return mcd(b,a%b);
+        else
+            return a;
+    }
+    
+    public static int multC(int p,int q){
+        if(q>=2&&q%2==0)
+             return multC(2*p,q/2);
+        else if (q>=2&&q%2!=0)
+            return multC(2*p,q/2)+p;
+        else if(q==0)
+            return 0;
+        else 
+            return p;
+    }
+}
