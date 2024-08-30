@@ -63,7 +63,7 @@ public class ResolverUnLaberinto {
 		private boolean esMuro(int x, int y, char[][] lab) {
 			boolean dentroDeLimites = (x >= 0 && x < lab[0].length) && (y >= 0 && y < lab.length);
 			boolean esMuro = dentroDeLimites && (lab[y][x] == '#');
-		}
+		
 			return esMuro;
        }
    }
