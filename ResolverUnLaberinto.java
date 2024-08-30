@@ -22,7 +22,7 @@ public class ResolverUnLaberinto {
 	public boolean resuelve(char[][] lab, int x, int y) {
 		lab[y][x] = '.';
 		if (x == 0 || y == 0 || x == lab[0].length - 1 || y == lab.length - 1) {
-			System.out.println("\nSoluuion Encontrada");
+			System.out.println("\nSolucion Encontrada");
 			imprime(lab);
 			return true;
 		}
@@ -60,6 +60,13 @@ public class ResolverUnLaberinto {
 		return false;
 
 	}
+//comentario de julieta
+	private boolean esValido(int x, int y, char[][] lab) {
+    if (x < 0 || x >= lab[0].length || y < 0 || y >= lab.length) {
+        return false;
+    }
+    return lab[y][x] == ' ';
+}
 //COMENTARIO DE ANGEL:)
 	public void imprime(char[][] lab) {
 		for (int i = 0; i < lab.length; i++) {
