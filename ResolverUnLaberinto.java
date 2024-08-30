@@ -59,7 +59,16 @@ public class ResolverUnLaberinto {
 		lab[y][x] = ' ';
 		return false;
 
-	}
+		//comentario de Julia Rdz
+		private boolean esMuro(int x, int y, char[][] lab) {
+			boolean dentroDeLimites = (x >= 0 && x < lab[0].length) && (y >= 0 && y < lab.length);
+			boolean esMuro = dentroDeLimites && (lab[y][x] == '#');
+		}
+			return esMuro;
+       }
+   }
+
+}
 //comentario de julieta
 	private boolean esValido(int x, int y, char[][] lab) {
     if (x < 0 || x >= lab[0].length || y < 0 || y >= lab.length) {
